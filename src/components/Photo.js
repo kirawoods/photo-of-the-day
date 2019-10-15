@@ -9,7 +9,7 @@ import {
 const apiKey = 'GdL3GNLzoNuuGwuaWXjW9AiFH4qvQWWFpQFaacQb';
 
 
-export const Photo = props => {
+export const Photo = () => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
