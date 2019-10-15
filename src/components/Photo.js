@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './photo.css';
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 const apiKey = 'GdL3GNLzoNuuGwuaWXjW9AiFH4qvQWWFpQFaacQb';
 
@@ -21,13 +25,14 @@ export const Photo = props => {
       });
   }, []);
     return ( 
-      <div className = "photoCard">        
-        <img className="nasaImage" src={image.hdurl}/>
-        <div className = "text-content">
-        <h1 className = "title">{image.title}</h1>
-        <p className = "description">{image.explanation}</p>
-        </div>
-      </div>
+      <Card>        
+        <CardImg src={image.hdurl}/>
+        <CardBody>
+        <CardTitle>{image.title}</CardTitle>
+        <CardSubtitle>{image.date}</CardSubtitle>
+        <CardText>{image.explanation}</CardText>
+        </CardBody>
+      </Card>
     );
   }  
 
