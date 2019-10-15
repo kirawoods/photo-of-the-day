@@ -20,11 +20,13 @@ export const Photo = props => {
         console.log(error); 
       });
   }, []);
-    return (
-      <div>
-        <h1>{image.title}</h1>
+    return ( 
+      <div className = "photoCard">        
         <img className="nasaImage" src={image.hdurl}/>
-        <p>{image.explanation}</p>
+        <div className = "text-content">
+        <h1 className = "title">{image.title}</h1>
+        <p className = "description">{image.explanation}</p>
+        </div>
       </div>
     );
   }  
