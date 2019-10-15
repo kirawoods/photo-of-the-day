@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import './photo.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./photo.css";
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+} from "reactstrap";
 
-const apiKey = 'GdL3GNLzoNuuGwuaWXjW9AiFH4qvQWWFpQFaacQb';
-
+const apiKey = "GdL3GNLzoNuuGwuaWXjW9AiFH4qvQWWFpQFaacQb";
 
 export const Photo = () => {
   const [image, setImage] = useState([]);
@@ -21,18 +24,17 @@ export const Photo = () => {
         setImage(nasaInfo);
       })
       .catch(error => {
-        console.log(error); 
+        console.log(error);
       });
   }, []);
-    return ( 
-      <Card>        
-        <CardImg src={image.hdurl}/>
-        <CardBody>
+  return (
+    <Card>
+      <CardImg src={image.hdurl} />
+      <CardBody>
         <CardTitle>{image.title}</CardTitle>
         <CardSubtitle>{image.date}</CardSubtitle>
         <CardText>{image.explanation}</CardText>
-        </CardBody>
-      </Card>
-    );
-  }  
-
+      </CardBody>
+    </Card>
+  );
+};
