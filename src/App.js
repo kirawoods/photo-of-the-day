@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios'; 
+import {Photo} from './components/Photo';
 
 axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
   .then(function (response) {
@@ -17,9 +18,7 @@ axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
 
 function App() {
   return (
-    <div className="App">
-      test
-    </div>
+    <Photo/>
   );
 }
 
