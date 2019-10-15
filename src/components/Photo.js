@@ -1,8 +1,40 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./photo.css";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+} from "reactstrap";
 
+const apiKey = "GdL3GNLzoNuuGwuaWXjW9AiFH4qvQWWFpQFaacQb";
 
+export const Photo = () => {
+  const [image, setImage] = useState([]);
 
-export const Photo = props => {
-    return <img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1193,w_2121,x_0,y_64/f_auto,q_auto,w_1100/v1565279671/shape/mentalfloss/578211-gettyimages-542930526.jpg"/>;
-  };
+  useEffect(() => {
+    axios
+      .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+      .then(response => {
+        const nasaInfo = response.data;
+        console.log(nasaInfo);
+        setImage(nasaInfo);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+  return (
+    <Card>
+      <CardImg src={image.hdurl} />
+      <CardBody>
+        <CardTitle>{image.title}</CardTitle>
+        <CardSubtitle>{image.date}</CardSubtitle>
+        <CardText>{image.explanation}</CardText>
+      </CardBody>
+    </Card>
+  );
+};
