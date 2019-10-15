@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import './photo.css';
 
 const apiKey = 'GdL3GNLzoNuuGwuaWXjW9AiFH4qvQWWFpQFaacQb';
 
@@ -21,7 +22,9 @@ export const Photo = props => {
   }, []);
     return (
       <div>
-        <img src={image.url}/>
+        <h1>{image.title}</h1>
+        <img className="nasaImage" src={image.hdurl}/>
+        <p>{image.explanation}</p>
       </div>
     );
   }  
